@@ -1,5 +1,6 @@
 Student Achievement Management System
 =========
+The final assignment of my friend's JAVA course, use JAVA to implement a system with a MySQL database to manager the achieve(grade) of course.
 Requirement
 -----------
 任课教师学生成绩管理系统。（2人）<br>
