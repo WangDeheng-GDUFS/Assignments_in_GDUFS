@@ -1,0 +1,5 @@
+c:\users\c507\documents\visual studio 2012\Projects\ch01_2\ch01_2\bin\Debug\ch01_2.exe.config
+c:\users\c507\documents\visual studio 2012\Projects\ch01_2\ch01_2\bin\Debug\ch01_2.exe
+c:\users\c507\documents\visual studio 2012\Projects\ch01_2\ch01_2\bin\Debug\ch01_2.pdb
+c:\users\c507\documents\visual studio 2012\Projects\ch01_2\ch01_2\obj\Debug\ch01_2.exe
+c:\users\c507\documents\visual studio 2012\Projects\ch01_2\ch01_2\obj\Debug\ch01_2.pdb
