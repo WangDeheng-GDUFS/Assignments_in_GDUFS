@@ -34,22 +34,22 @@ public class TCPClient {
    }
   
   public String receive(){
-  String msg;
-      try {
-          msg = br.readLine();
-          // 从网络输入字符流中读信息,每次只能接收一行信息.
-          // 若不够一行(无行结束符),该语句阻塞(阻塞语句),直到条件满足,程序才往下运行
-      } catch (IOException ex) { msg=null;  }
-   
-    return msg;
-  }
+    String msg;
+    try {
+        msg = br.readLine();
+        // 从网络输入字符流中读信息,每次只能接收一行信息.
+        // 若不够一行(无行结束符),该语句阻塞(阻塞语句),直到条件满足,程序才往下运行
+    } catch (IOException ex) { msg=null; }
 
-  public void close() {
-     try {
-      if(socket!=null)  
-         socket.close();  // 实现四次握手断开.
+    return msg;
+}
+
+ public void close() {
+    try {
+        if(socket!=null)  
+        socket.close();  // 实现四次握手断开.
     } catch (IOException ex) {  }
-  }
+ }
   
    //模块内测试与运行，需先运行TCPServer。
   public static void main(String args[]) throws IOException{

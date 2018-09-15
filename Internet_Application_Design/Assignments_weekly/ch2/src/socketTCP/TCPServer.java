@@ -36,10 +36,10 @@ public class TCPServer {
         String msg;
         while ((msg = br.readLine())!= null) //阻塞语句，从输入流中读入一行字符串。
          {
-             pw.println("来自服务器:"+msg);//向输出流中输出一行字符串。
-             //pw.println("来自服务器2:"+msg);
-             if (msg.equals("bye")) //如果客户发送的消息为“bye”，就结束通信
-              break;
+            pw.println("来自服务器:"+msg);//向输出流中输出一行字符串。
+            //pw.println("来自服务器2:"+msg);
+            if (msg.equals("bye")) //如果客户发送的消息为“bye”，就结束通信
+            break;
         }
       }catch (IOException e) {
          e.printStackTrace();

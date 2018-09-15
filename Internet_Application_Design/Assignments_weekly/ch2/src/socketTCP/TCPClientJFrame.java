@@ -178,8 +178,13 @@ public class TCPClientJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String msg1 = jTextField3.getText();
         tc.send(msg1);    // 发送一串字符。
-        String msg2=tc.receive();    // 接收一行字符串。
+        String msg2 = tc.receive();    // 接收一行字符串。
         jTextArea1.append(msg2 + '\n');
+        FileWrite fw = new FileWrite();
+        if(msg2 != null){
+            System.out.println(msg2);
+            fw.append(msg2);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
