@@ -1,0 +1,62 @@
+# python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+
+# JAVA:
+# Built application files  
+*.apk  
+*.ap_  
+  
+# Files for the dex VM  
+*.dex  
+  
+# Java class files  
+*.class  
+*.jar  
+  
+# generated files  
+bin/  
+gen/  
+  
+# Eclipse project files  
+.classpath  
+.project  
+.DS_Store
+
+# C#
+!/DLLs/
+*.exe
+*.exp
+*.ilk
+*.lib
+*.ncb
+*.log
+*.pdb
+*.vcproj.*.user
+*.suo
+._*
+[Dd]ebug
+[Rr]elease
+obj/
+[Bb]in
+!packages/build/
+Bak/
+packages/
+[Rr]elease/
+Key/
+!NuGet.exe
+
+# Some local files
+*/.settings/
+*/.DS_Store
+.DS_Store
+*/.idea/
+.idea/
+*/.scrapy/
+.scrapy/
+
