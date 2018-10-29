@@ -11,7 +11,7 @@ import java.io.IOException;
  *
  * @author Administrator
  */
-public class TCPClientThreadJFrame1 extends javax.swing.JFrame {
+public class TCPClientThreadJFrame extends javax.swing.JFrame {
 
     private TCPClient tc;
     private Thread receiver;
@@ -19,7 +19,7 @@ public class TCPClientThreadJFrame1 extends javax.swing.JFrame {
     /**
      * Creates new form TCPClientJFrame
      */
-    public TCPClientThreadJFrame1() {
+    public TCPClientThreadJFrame() {
         initComponents();
         receiver = new Thread(){
             // 用一个线程专门来接收信息。
@@ -28,11 +28,15 @@ public class TCPClientThreadJFrame1 extends javax.swing.JFrame {
             {
                 String msg = null;
                 while((msg = tc.receive()) != null){
-                    jTextArea1.append(this.getName() + msg + " // received by receiver\n");
+                    // jTextArea1.append(this.getName() + msg + " // received by receiver\n");
+                    // jTextArea1.append(msg);
+                    jTextArea1.append(msg + "\n");
+                    int length = jTextArea1.getText().length();
+                    jTextArea1.setCaretPosition(length);    // 滚动条总是移动到最后一行信息.
                 }
                 jTextArea1.append("对话已关闭！\n");
-                }
-            };
+            }
+        };
     }
 
     /**
@@ -181,6 +185,7 @@ public class TCPClientThreadJFrame1 extends javax.swing.JFrame {
         String port = jTextField2.getText();
         try {
             tc = new TCPClient(ip, port);
+            receiver.start(); // 启动该线程。
             jTextArea1.append("服务器连接成功.\r\n");
         } catch (IOException ex) {
            jTextArea1.append("服务器连接失败.\r\n");
@@ -191,15 +196,15 @@ public class TCPClientThreadJFrame1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         String msg1 = jTextField3.getText();
         tc.send(msg1);    // 发送一串字符。
-        String msg2 = tc.receive();    // 接收一行字符串。
-        jTextArea1.append(msg2 + "\n");
-        receiver.start(); // 启动该线程。
-        FileWrite fw = new FileWrite();
-        if(msg2 != null)
-        {
-            System.out.println(msg2);
-            fw.append(msg2);
-        }
+        // String msg2 = tc.receive();    // 接收一行字符串。
+        // jTextArea1.append(msg2 + "\n");
+
+        // FileWrite fw = new FileWrite();
+        // if(msg2 != null)
+        // {
+        //     System.out.println(msg2);
+        //     fw.append(msg2);
+        // }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -224,21 +229,23 @@ public class TCPClientThreadJFrame1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TCPClientThreadJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCPClientThreadJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TCPClientThreadJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCPClientThreadJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TCPClientThreadJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCPClientThreadJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TCPClientThreadJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCPClientThreadJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TCPClientThreadJFrame1().setVisible(true);
+                new TCPClientThreadJFrame().setVisible(true);
             }
         });
     }
