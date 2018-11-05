@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 
 public class GroupServer {
-  private int port = 8008;
+  private final int port = 8008;
   private ServerSocket serverSocket;
   private ExecutorService executorService;  //线程池
   private final int POOL_SIZE = 15;  //单个CPU时线程池中工作线程的数目
